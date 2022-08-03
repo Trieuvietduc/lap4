@@ -1,3 +1,5 @@
+@extends('auth.auth')
+@section('main')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <style>
@@ -67,10 +69,8 @@
                 <span>{{$errors->first('avatar')}}</span>
             @endif
         </div>
-        <input type="hidden" name="room_id" id="" value="1">
-        <input type="hidden" name="role" id="" value="1">
-        <input type="hidden" name="status" id="" value="1">
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-warning">Nhập lại</button>
     </form>
 </div>
+@endsection

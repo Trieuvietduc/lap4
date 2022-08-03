@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckAdmin
+class CheckLogin
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,11 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == 2) {
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             return $next($request);
-        } else {
-            return redirect()->route('index');
+        }else{
+            return redirect()->route('index')->with('error','tài khoản hoặc mk không đúng');
         }
+           
     }
 }
